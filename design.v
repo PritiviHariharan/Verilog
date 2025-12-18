@@ -1,9 +1,11 @@
-module crt1(y,a,b,c);
+module crt2(y,a,b);
 output y;
-input a,b,c;
-wire w1,w2,w3;
-or g1(w1,a,b);
-or g2(w2,b,c);
-not g3(w3,c);
-xor g4(y,w1,w2,w3);
+input a,b;
+wire n1;
+supply1 c;
+supply0 d;
+pmos t1(y,c,b);
+pmos t2(y,c,a);
+nmos t3(y,a,n1);
+nmos t4(n1,b,d);
 endmodule
