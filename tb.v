@@ -1,17 +1,21 @@
-module crt2_tb;
-wire y;
-reg a,b;
-crt2 inst(y,a,b);
+module dff_tb;
+reg d,clk,rst;
+wire q;
+dff181225 inst(q,d,clk,rst);
 initial begin
-    a=0;b=0;#10
-    a=0;b=1;#10
-    a=1;b=0;#10
-    a=1;b=1;#10 
+    d=0;clk=0;rst=0;#10
+    d=0;clk=0;rst=1;#10
+    d=0;clk=1;rst=0;#10
+    d=0;clk=1;rst=1;#10
+    d=1;clk=0;rst=0;#10
+    d=1;clk=0;rst=1;#10
+    d=1;clk=1;rst=0;#10
+    d=1;clk=1;rst=1;
     $finish;
 end
 initial begin
-    $monitor("Time=%0t,a=%b,b=%b,y=%b",$time,a,b,y);
-    $dumpfile("crt2.vcd");
+    $monitor("Time=%0t,d=%b,clk=%b,rst=%b,q=%b",$time,d,clk,rst,q);
+    $dumpfile("dff181225.vcd");
     $dumpvars();
 end
 endmodule
